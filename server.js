@@ -11,6 +11,7 @@ import authRoute from "./routes/auth.route.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 const port = process.env.PORT || 8800;
+const BASE_URL=process.env.BASE_URL ;
 const app = express();
 dotenv.config();
 mongoose.set("strictQuery", true);
@@ -24,7 +25,7 @@ const connect = async () => {
   }
 };
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: BASE_URL, credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 
